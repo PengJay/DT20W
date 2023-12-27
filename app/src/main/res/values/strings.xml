@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DT20W</string>
+    <string name="button_clicked_message">Button Clicked!</string>
+</resources>
