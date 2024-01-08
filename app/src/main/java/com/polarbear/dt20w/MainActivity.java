@@ -50,16 +50,30 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
+
+        if (!bluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+
+                //添加权限
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.BLUETOOTH_CONNECT},
+                        MY_PERMISSIONS_REQUEST_BLUETOOTH_CONNECT);
+
+                Log.d(TAG, "onCreate: " + "添加权限");
+                return;
+            }
+
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        } else {
+            selectBluetoothDevice();
+        }
+
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (!bluetoothAdapter.isEnabled()) {
-                    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-                } else {
-                    selectBluetoothDevice();
-                }
             }
         });
 
@@ -78,6 +92,13 @@ public class MainActivity extends AppCompatActivity {
             String address = data.getStringExtra("address");
             BluetoothDevice device = bluetoothAdapter.getRemoteDevice(address);
             try {
+                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                    //add permission
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{android.Manifest.permission.BLUETOOTH_CONNECT},
+                            MY_PERMISSIONS_REQUEST_BLUETOOTH_CONNECT);
+                    return;
+                }
                 BluetoothSocket mmSocket = device.createRfcommSocketToServiceRecord(MY_UUID);
                 mmSocket.connect();
                 startListening(mmSocket);
@@ -146,11 +167,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "在这里启动 DeviceListActivity");
             } else {
                 // 权限被拒绝，可能需要向用户解释为何需要该权限
+                Log.d(TAG, "权限被拒绝，可能需要向用户解释为何需要该权限");
                 Toast.makeText(this, "需要蓝牙连接权限才能执行该操作", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
-
-
 }
