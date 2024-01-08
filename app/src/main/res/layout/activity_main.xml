@@ -6,11 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="主页面"
+        android:gravity="top"
+        android:textSize="18sp" />
+
     <Button
-        android:id="@+id/myButton"
+        android:id="@+id/connectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click Me"
+        android:text="Connect bluetooth"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 </RelativeLayout>
