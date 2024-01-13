@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/laser"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/laserData"
-        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/tec"
-        android:layout_marginLeft="170dp"
+        android:layout_marginStart="170dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
 
     <TextView
         android:id="@+id/driver"
-        android:layout_marginLeft="290dp"
+        android:layout_marginStart="290dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/driverData"
-        android:layout_marginLeft="340dp"
+        android:layout_marginStart="340dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
 
     <TextView
         android:id="@+id/set"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/setData"
-        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
         android:id="@+id/addButton"
         android:layout_width="45dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="90dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="100dp"
         android:text="+"
         android:textColor="#FFFFFF"
@@ -111,7 +111,7 @@
 
     <TextView
         android:id="@+id/lim"
-        android:layout_marginLeft="170dp"
+        android:layout_marginStart="170dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/limData"
-        android:layout_marginLeft="210dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
 
     <TextView
         android:id="@+id/powerIn"
-        android:layout_marginLeft="290dp"
+        android:layout_marginStart="290dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -139,11 +139,11 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/powerInData"
-        android:layout_marginLeft="340dp"
+        android:layout_marginStart="370dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0.00 ℃"
+        android:text="0"
         android:textSize="18sp"
         android:textColor="@color/black"/>
 
