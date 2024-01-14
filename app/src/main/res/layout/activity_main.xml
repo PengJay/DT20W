@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/tec"
-        android:layout_marginStart="170dp"
+        android:layout_marginStart="160dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/tecData"
-        android:layout_marginLeft="210dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
 
     <TextView
         android:id="@+id/driver"
-        android:layout_marginStart="290dp"
+        android:layout_marginStart="270dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/driverData"
-        android:layout_marginStart="340dp"
+        android:layout_marginStart="320dp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,10 +87,10 @@
         android:text="0.00 ℃"
         android:textSize="18sp"
         android:textColor="@color/black"
-        android:background="#D1CDCD"/>
+        android:background="@color/brown"/>
 
     <Button
-        android:id="@+id/minusButton"
+        android:id="@+id/setSub"
         android:layout_width="45dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -100,7 +100,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/setAdd"
         android:layout_width="45dp"
         android:layout_height="40dp"
         android:layout_marginStart="90dp"
@@ -111,7 +111,7 @@
 
     <TextView
         android:id="@+id/lim"
-        android:layout_marginStart="170dp"
+        android:layout_marginStart="160dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -120,17 +120,38 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/limData"
-        android:layout_marginStart="210dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="18sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/limSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="100dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/limAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="100dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/powerIn"
-        android:layout_marginStart="290dp"
+        android:layout_marginStart="270dp"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -139,15 +160,598 @@
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/powerInData"
-        android:layout_marginStart="370dp"
+        android:layout_marginStart="350dp"
         android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 W"
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
+
+    <!--第三行-->
+
+    <TextView
+        android:id="@+id/input"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input"
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/inputRed"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="150dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="18sp"
+        android:textColor="@color/red" />
+
+
+    <TextView
+        android:id="@+id/inputGreen"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="18sp"
+        android:textColor="@color/green"/>
+
+    <TextView
+        android:id="@+id/inputBlue"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="18sp"
+        android:textColor="@color/blue"/>
+
+    <!--第四行-->
+
+    <TextView
+        android:id="@+id/voltageRed"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R:"
+        android:textSize="18sp"
+        android:textColor="@color/red"/>
+    <TextView
+        android:id="@+id/voltageRedData"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00 V"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/voltageRedSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/voltageRedAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="220dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/voltageGreen"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="G:"
+        android:textSize="18sp"
+        android:textColor="#9EEC04"/>
+    <TextView
+        android:id="@+id/voltageGreenData"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00 V"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+
+    <Button
+        android:id="@+id/voltageGreenSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="220dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/voltageGreenAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="220dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/voltageBlue"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B:"
+        android:textSize="18sp"
+        android:textColor="#3D58EF"/>
+    <TextView
+        android:id="@+id/voltageBlueData"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 W"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/voltageBlueSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="220dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/voltageBlueAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="220dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <!--第五行-->
+
+    <TextView
+        android:id="@+id/curRed"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cur:"
+        android:textSize="18sp"
+        android:textColor="@color/red"/>
+    <TextView
+        android:id="@+id/curRedData"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 mA"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/curRedSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="310dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/curRedAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="310dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/curGreen"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="G:"
+        android:textSize="18sp"
+        android:textColor="#9EEC04"/>
+    <TextView
+        android:id="@+id/curGreenData"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 mA"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+
+    <Button
+        android:id="@+id/curGreenSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="310dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/curGreenAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="310dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/curBlue"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B:"
+        android:textSize="18sp"
+        android:textColor="#3D58EF"/>
+    <TextView
+        android:id="@+id/curBlueData"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 mA"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/curBlueSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="310dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/curBlueAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="310dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <!--第六行-->
+
+    <TextView
+        android:id="@+id/offsetRed"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="380dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Offset:"
+        android:textSize="18sp"
+        android:textColor="@color/red"/>
+    <TextView
+        android:id="@+id/offsetRedData"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="380dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 %"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/offsetRedSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="400dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/offsetRedAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="400dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/offsetGreen"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="380dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="G:"
+        android:textSize="18sp"
+        android:textColor="#9EEC04"/>
+
+    <TextView
+        android:id="@+id/offsetGreenData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="380dp"
+        android:background="@color/brown"
+        android:text="0 %"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/offsetGreenSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="400dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/offsetGreenAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="400dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/offsetBlue"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="380dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B:"
+        android:textSize="18sp"
+        android:textColor="#3D58EF"/>
+    <TextView
+        android:id="@+id/offsetBlueData"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="380dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 %"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/offsetBlueSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="400dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/offsetBlueAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="400dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <!--第七行-->
+
+    <TextView
+        android:id="@+id/thRed"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="470dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TH:"
+        android:textSize="18sp"
+        android:textColor="@color/red"/>
+    <TextView
+        android:id="@+id/thRedRedData"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="470dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/thRedRedSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="490dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/thRedAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="490dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/thGreen"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="470dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="G:"
+        android:textSize="18sp"
+        android:textColor="#9EEC04"/>
+
+    <TextView
+        android:id="@+id/thGreenData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="470dp"
+        android:background="@color/brown"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/thGreenSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="490dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/thGreenAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="490dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/thBlue"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="470dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B:"
+        android:textSize="18sp"
+        android:textColor="#3D58EF"/>
+    <TextView
+        android:id="@+id/thBlueData"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="470dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/thBlueSub"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="490dp"
+        android:text="——"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/thBlueAdd"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="490dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/laserOn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="570dp"
+        android:text="Laser On"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/saveSetting"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="570dp"
+        android:text="Save Setting"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/loadSetting"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="570dp"
+        android:text="Load Setting"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/fw"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="660dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FW:"
+        android:textSize="15sp"
         android:textColor="@color/black"/>
-
-
+    <TextView
+        android:id="@+id/fwData"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="660dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.20"
+        android:textSize="15sp"
+        android:textColor="@color/black"/>
 
 
 </RelativeLayout>
