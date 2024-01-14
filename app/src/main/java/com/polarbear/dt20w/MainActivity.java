@@ -17,6 +17,10 @@ import androidx.appcompat.app.AlertDialog;
 import java.util.ArrayList;
 import android.view.View;
 import android.widget.Toast;
+
+import com.polarbear.dt20w.globaldata.MCUData;
+import com.polarbear.dt20w.parser.MCUFrameDecoder;
+
 public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBluetoothAction{
 
     // 蓝牙工具
@@ -31,12 +35,14 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
     private DeviceDialogCtrl mDeviceDialogCtrl;
     private static final String TAG = "MainActivity"; // 定义一个标签
 
+    private MCUFrameDecoder mcuFrameDecoder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initPermissions();
+        mcuFrameDecoder = new MCUFrameDecoder();
 
         mBLESPPUtils = new BLESPPUtils(this, this);
         mBLESPPUtils.enableBluetooth();
@@ -93,7 +99,8 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
     }
     @Override
     public void onReceiveBytes(final byte[] bytes) {
-
+        MCUData mcuData = mcuFrameDecoder.decoder(bytes);
+        showInfo(mcuData);
     }
     @Override
     public void onSendBytes(final byte[] bytes) {
@@ -101,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
     }
     @Override
     public void onFinishFoundDevice() { }
+
+    void showInfo(MCUData mcuData){}
 
     private class DeviceDialogCtrl {
         private LinearLayout mDialogRootView;
