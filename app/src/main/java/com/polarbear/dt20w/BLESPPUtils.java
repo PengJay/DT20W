@@ -7,8 +7,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +29,7 @@ import java.util.UUID;
  */
 class BLESPPUtils {
     private static boolean mEnableLogOut = false;
-    private Context mContext;
+    private static Context mContext;
     private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     private OnBluetoothAction mOnBluetoothAction;
     private ConnectTask mConnectTask = new ConnectTask();
@@ -63,6 +66,7 @@ class BLESPPUtils {
         private BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         BluetoothSocket bluetoothSocket;
         BluetoothDevice romoteDevice;
+
         OnBluetoothAction onBluetoothAction;
         boolean isRunning = false;
         String stopString = "\r\n";
@@ -76,6 +80,9 @@ class BLESPPUtils {
             try {
                 UUID SPP_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
                 romoteDevice = bluetoothAdapter.getRemoteDevice(bluetoothDevicesMac[0]);
+                if (ActivityCompat.checkSelfPermission(mContext, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+
+                }
                 bluetoothSocket = romoteDevice.createRfcommSocketToServiceRecord(SPP_UUID);
             } catch (Exception e) {
                 logD("获取Socket失败");
@@ -95,7 +102,7 @@ class BLESPPUtils {
             try {
                 // 等待连接，会阻塞线程
                 bluetoothSocket.connect();
-                logD( "连接成功");
+                logD("连接成功");
                 onBluetoothAction.onConnectSuccess(romoteDevice);
             } catch (Exception connectException) {
                 connectException.printStackTrace();
@@ -112,7 +119,9 @@ class BLESPPUtils {
                     logD("looping");
                     byte[] buffer = new byte[256];
                     // 等待有数据
-                    while (inputStream.available() == 0 && isRunning) {if (System.currentTimeMillis() < 0) break;}
+                    while (inputStream.available() == 0 && isRunning) {
+                        if (System.currentTimeMillis() < 0) break;
+                    }
                     while (isRunning) {
                         try {
                             int num = inputStream.read(buffer);
@@ -186,7 +195,9 @@ class BLESPPUtils {
             try {
                 bluetoothSocket.getOutputStream().write(msg);
                 onBluetoothAction.onSendBytes(msg);
-            } catch (Exception e){e.printStackTrace();}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -270,13 +281,19 @@ class BLESPPUtils {
             mConnectTask.cancel(true);
             mContext.unregisterReceiver(mReceiver);
             mContext.unregisterReceiver(mFinishFoundReceiver);
-        } catch (Exception e) {e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * 开始搜索
      */
     void startDiscovery() {
+        if (ActivityCompat.checkSelfPermission(mContext, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
         if (mBluetoothAdapter.isDiscovering()) mBluetoothAdapter.cancelDiscovery();
         mBluetoothAdapter.startDiscovery();
     }
@@ -287,6 +304,9 @@ class BLESPPUtils {
      * @param device 设备
      */
     void connect(BluetoothDevice device) {
+        if (ActivityCompat.checkSelfPermission(mContext, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
         mBluetoothAdapter.cancelDiscovery();
         connect(device.getAddress());
     }
@@ -304,7 +324,9 @@ class BLESPPUtils {
         mConnectTask.onBluetoothAction = mOnBluetoothAction;
         try {
             mConnectTask.execute(deviceMac);
-        } catch (Exception e) {e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -327,6 +349,9 @@ class BLESPPUtils {
      * 开启蓝牙
      */
     void enableBluetooth() {
+        if (ActivityCompat.checkSelfPermission(mContext, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
         mBluetoothAdapter.enable();
     }
 
