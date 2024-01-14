@@ -176,7 +176,7 @@
         android:layout_marginTop="150dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Input"
+        android:text="Input:"
         android:textSize="18sp"
         android:textColor="@color/black"/>
     <TextView
@@ -218,9 +218,9 @@
         android:layout_marginTop="200dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="R:"
+        android:text="Vol:"
         android:textSize="18sp"
-        android:textColor="@color/red"/>
+        android:textColor="@color/black"/>
     <TextView
         android:id="@+id/voltageRedData"
         android:layout_marginStart="60dp"
@@ -229,7 +229,7 @@
         android:layout_height="wrap_content"
         android:text="0.00 V"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/red"
         android:background="@color/brown"/>
 
     <Button
@@ -252,15 +252,15 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/voltageGreen"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="200dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="G:"
-        android:textSize="18sp"
-        android:textColor="#9EEC04"/>
+<!--    <TextView-->
+<!--        android:id="@+id/voltageGreen"-->
+<!--        android:layout_marginStart="170dp"-->
+<!--        android:layout_marginTop="200dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="G:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/green"/>-->
     <TextView
         android:id="@+id/voltageGreenData"
         android:layout_marginStart="190dp"
@@ -269,7 +269,7 @@
         android:layout_height="wrap_content"
         android:text="0.00 V"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:background="@color/brown"/>
 
 
@@ -293,24 +293,24 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/voltageBlue"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="200dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="B:"
-        android:textSize="18sp"
-        android:textColor="#3D58EF"/>
+<!--    <TextView-->
+<!--        android:id="@+id/voltageBlue"-->
+<!--        android:layout_marginStart="300dp"-->
+<!--        android:layout_marginTop="200dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="B:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#3D58EF"/>-->
     <TextView
         android:id="@+id/voltageBlueData"
-        android:layout_marginStart="320dp"
+        android:layout_marginStart="310dp"
         android:layout_marginTop="200dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 W"
+        android:text="0 V"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/blue"
         android:background="@color/brown"/>
 
     <Button
@@ -343,7 +343,7 @@
         android:layout_height="wrap_content"
         android:text="Cur:"
         android:textSize="18sp"
-        android:textColor="@color/red"/>
+        android:textColor="@color/black"/>
     <TextView
         android:id="@+id/curRedData"
         android:layout_marginStart="65dp"
@@ -352,7 +352,7 @@
         android:layout_height="wrap_content"
         android:text="0 mA"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/red"
         android:background="@color/brown"/>
 
     <Button
@@ -375,15 +375,15 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/curGreen"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="290dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="G:"
-        android:textSize="18sp"
-        android:textColor="#9EEC04"/>
+<!--    <TextView-->
+<!--        android:id="@+id/curGreen"-->
+<!--        android:layout_marginStart="170dp"-->
+<!--        android:layout_marginTop="290dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Cur:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#9EEC04"/>-->
     <TextView
         android:id="@+id/curGreenData"
         android:layout_marginStart="190dp"
@@ -392,7 +392,7 @@
         android:layout_height="wrap_content"
         android:text="0 mA"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:background="@color/brown"/>
 
 
@@ -416,24 +416,24 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/curBlue"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="290dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="B:"
-        android:textSize="18sp"
-        android:textColor="#3D58EF"/>
+<!--    <TextView-->
+<!--        android:id="@+id/curBlue"-->
+<!--        android:layout_marginStart="300dp"-->
+<!--        android:layout_marginTop="290dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="B:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#3D58EF"/>-->
     <TextView
         android:id="@+id/curBlueData"
-        android:layout_marginStart="320dp"
+        android:layout_marginStart="310dp"
         android:layout_marginTop="290dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0 mA"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/blue"
         android:background="@color/brown"/>
 
     <Button
@@ -466,7 +466,7 @@
         android:layout_height="wrap_content"
         android:text="Offset:"
         android:textSize="18sp"
-        android:textColor="@color/red"/>
+        android:textColor="@color/black"/>
     <TextView
         android:id="@+id/offsetRedData"
         android:layout_marginStart="75dp"
@@ -475,7 +475,7 @@
         android:layout_height="wrap_content"
         android:text="0 %"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/red"
         android:background="@color/brown"/>
 
     <Button
@@ -498,15 +498,15 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/offsetGreen"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="380dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="G:"
-        android:textSize="18sp"
-        android:textColor="#9EEC04"/>
+<!--    <TextView-->
+<!--        android:id="@+id/offsetGreen"-->
+<!--        android:layout_marginStart="170dp"-->
+<!--        android:layout_marginTop="380dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Offset:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#9EEC04"/>-->
 
     <TextView
         android:id="@+id/offsetGreenData"
@@ -516,7 +516,7 @@
         android:layout_marginTop="380dp"
         android:background="@color/brown"
         android:text="0 %"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:textSize="18sp" />
 
 
@@ -540,24 +540,24 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/offsetBlue"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="380dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="B:"
-        android:textSize="18sp"
-        android:textColor="#3D58EF"/>
+<!--    <TextView-->
+<!--        android:id="@+id/offsetBlue"-->
+<!--        android:layout_marginStart="300dp"-->
+<!--        android:layout_marginTop="380dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="B:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#3D58EF"/>-->
     <TextView
         android:id="@+id/offsetBlueData"
-        android:layout_marginStart="320dp"
+        android:layout_marginStart="315dp"
         android:layout_marginTop="380dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0 %"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/blue"
         android:background="@color/brown"/>
 
     <Button
@@ -590,7 +590,7 @@
         android:layout_height="wrap_content"
         android:text="TH:"
         android:textSize="18sp"
-        android:textColor="@color/red"/>
+        android:textColor="@color/black"/>
     <TextView
         android:id="@+id/thRedRedData"
         android:layout_marginStart="80dp"
@@ -599,7 +599,7 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/red"
         android:background="@color/brown"/>
 
     <Button
@@ -622,15 +622,15 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/thGreen"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="470dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="G:"
-        android:textSize="18sp"
-        android:textColor="#9EEC04"/>
+<!--    <TextView-->
+<!--        android:id="@+id/thGreen"-->
+<!--        android:layout_marginStart="170dp"-->
+<!--        android:layout_marginTop="470dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="G:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#9EEC04"/>-->
 
     <TextView
         android:id="@+id/thGreenData"
@@ -640,7 +640,7 @@
         android:layout_marginTop="470dp"
         android:background="@color/brown"
         android:text="0"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:textSize="18sp" />
 
 
@@ -664,15 +664,15 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/thBlue"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="470dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="B:"
-        android:textSize="18sp"
-        android:textColor="#3D58EF"/>
+<!--    <TextView-->
+<!--        android:id="@+id/thBlue"-->
+<!--        android:layout_marginStart="300dp"-->
+<!--        android:layout_marginTop="470dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="B:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="#3D58EF"/>-->
     <TextView
         android:id="@+id/thBlueData"
         android:layout_marginStart="320dp"
@@ -681,7 +681,7 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/blue"
         android:background="@color/brown"/>
 
     <Button
