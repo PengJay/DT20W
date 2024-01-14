@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="inputRed" type="id" />
+    <item name="inputGreen" type="id" />
+    <item name="inputBlue" type="id" />
+    <item name="voltageRedData" type="id" />
+    <item name="voltageGreenData" type="id" />
+    <item name="voltageBlueData" type="id" />
+    <item name="curRedData" type="id" />
+    <item name="curGreenData" type="id" />
+    <item name="curBlueData" type="id" />
+    <item name="offsetRedData" type="id" />
+    <item name="offsetGreenData" type="id" />
+    <item name="offsetBlueData" type="id" />
+    <item name="thGreenData" type="id" />
+    <item name="thBlueData" type="id" />
+    <item name="fwData" type="id" />
+</resources>

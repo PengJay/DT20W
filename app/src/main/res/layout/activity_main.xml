@@ -583,7 +583,7 @@
     <!--第七行-->
 
     <TextView
-        android:id="@+id/thRed"
+        android:id="@+id/th"
         android:layout_marginStart="10dp"
         android:layout_marginTop="470dp"
         android:layout_width="wrap_content"
@@ -592,7 +592,7 @@
         android:textSize="18sp"
         android:textColor="@color/black"/>
     <TextView
-        android:id="@+id/thRedRedData"
+        android:id="@+id/thRedData"
         android:layout_marginStart="80dp"
         android:layout_marginTop="470dp"
         android:layout_width="wrap_content"
@@ -603,7 +603,7 @@
         android:background="@color/brown"/>
 
     <Button
-        android:id="@+id/thRedRedSub"
+        android:id="@+id/thRedSub"
         android:layout_width="45dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"

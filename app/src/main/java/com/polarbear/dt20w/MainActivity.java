@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initPermissions();
+
         mcuFrameDecoder = new MCUFrameDecoder();
 
         mBLESPPUtils = new BLESPPUtils(this, this);
@@ -110,6 +111,60 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
     public void onFinishFoundDevice() { }
 
     void showInfo(MCUData mcuData){}
+
+    private class TextActivity{
+        public TextView laserData;
+        public TextView driverData;
+        public TextView tecData;
+
+        public TextView limData;
+        public TextView setData;
+        public TextView powerInData;
+        public TextView inputGreen;
+        public TextView inputRed;
+        public TextView inputBlue;
+        public TextView voltageRedData;
+        public TextView voltageGreenData;
+        public TextView voltageBlueData;
+        public TextView curRedData;
+        public TextView curGreenData;
+        public TextView curBlueData;
+        public TextView offsetRedData;
+        public TextView offsetGreenData;
+        public TextView offsetBlueData;
+        public TextView thRedData;
+        public TextView thGreenData;
+        public TextView thBlueData;
+        public TextView fwData;
+
+        TextActivity(){
+            laserData = findViewById(R.id.laserData);
+            driverData = findViewById(R.id.driverData);
+            tecData = findViewById(R.id.tecData);
+            limData = findViewById(R.id.limData);
+            setData = findViewById(R.id.setData);
+            powerInData = findViewById(R.id.powerInData);
+            inputGreen = findViewById(R.id.inputGreen);
+            inputRed = findViewById(R.id.inputRed);
+            inputBlue = findViewById(R.id.inputBlue);
+            voltageRedData = findViewById(R.id.voltageRedData);
+            voltageGreenData = findViewById(R.id.voltageGreenData);
+            voltageBlueData = findViewById(R.id.voltageBlueData);
+            curRedData = findViewById(R.id.curRedData);
+            curGreenData = findViewById(R.id.curGreenData);
+            curBlueData = findViewById(R.id.curBlueData);
+            offsetRedData = findViewById(R.id.offsetRedData);
+            offsetGreenData= findViewById(R.id.offsetGreenData);
+            offsetBlueData = findViewById(R.id.offsetBlueData);
+            thRedData = findViewById(R.id.thRedData);
+            thGreenData = findViewById(R.id.thGreenData);
+            thBlueData = findViewById(R.id.thBlueData);
+            fwData = findViewById(R.id.fwData);
+        }
+        void updateTextActivity(MCUData mcuData){
+
+        }
+    }
 
     private class DeviceDialogCtrl {
         private LinearLayout mDialogRootView;
