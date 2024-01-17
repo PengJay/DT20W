@@ -1,5 +1,13 @@
 package com.polarbear.dt20w;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.ACCESS_WIFI_STATE;
+import static android.Manifest.permission.BLUETOOTH_CONNECT;
+
+import static androidx.core.app.ActivityCompat.requestPermissions;
+
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -9,9 +17,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,6 +43,8 @@ class BLESPPUtils {
     private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     private OnBluetoothAction mOnBluetoothAction;
     private ConnectTask mConnectTask = new ConnectTask();
+
+    private static Activity activity;
 
     /**
      * 搜索到新设备广播广播接收器
@@ -75,13 +87,12 @@ class BLESPPUtils {
         protected Void doInBackground(String... bluetoothDevicesMac) {
             // 记录标志位，开始运行
             isRunning = true;
-
             // 尝试获取 bluetoothSocket
             try {
                 UUID SPP_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
                 romoteDevice = bluetoothAdapter.getRemoteDevice(bluetoothDevicesMac[0]);
                 if (ActivityCompat.checkSelfPermission(mContext, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-
+                    requestBluetoothPermission();
                 }
                 bluetoothSocket = romoteDevice.createRfcommSocketToServiceRecord(SPP_UUID);
             } catch (Exception e) {
@@ -256,7 +267,8 @@ class BLESPPUtils {
      * @param context 上下文
      * @param onBluetoothAction 蓝牙状态改变回调
      */
-    BLESPPUtils(Context context, OnBluetoothAction onBluetoothAction) {
+    BLESPPUtils(Context context, OnBluetoothAction onBluetoothAction, Activity mainActivity) {
+        activity = mainActivity;
         mContext = context;
         mOnBluetoothAction = onBluetoothAction;
     }
@@ -283,6 +295,14 @@ class BLESPPUtils {
             mContext.unregisterReceiver(mFinishFoundReceiver);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void requestBluetoothPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (ActivityCompat.checkSelfPermission(mContext, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(activity, new String[]{android.Manifest.permission.BLUETOOTH_CONNECT}, 1);
+            }
         }
     }
 

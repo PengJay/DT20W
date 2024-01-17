@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
         // 调用方法来设置按钮点击事件
         setupButtonClickEvents();
 
-        mBLESPPUtils = new BLESPPUtils(this, this);
+        mBLESPPUtils = new BLESPPUtils(this, this,this);
         mBLESPPUtils.enableBluetooth();
         mBLESPPUtils.setStopString("01");
         if (!mBLESPPUtils.isBluetoothEnable()) mBLESPPUtils.enableBluetooth();
@@ -134,15 +134,14 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
 
     private void initPermissions() {
         if (ContextCompat.checkSelfPermission(this, "android.permission-group.LOCATION") != 0) {
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{
+            requestPermissions(new String[]{
                             ACCESS_FINE_LOCATION,
                             ACCESS_COARSE_LOCATION,
-                            ACCESS_WIFI_STATE,
-                            BLUETOOTH_CONNECT},
+                            ACCESS_WIFI_STATE
+                    },
                     1
             );
+
         }
     }
 
