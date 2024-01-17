@@ -1,8 +1,17 @@
 package com.polarbear.dt20w;
+
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.ACCESS_WIFI_STATE;
+import static android.Manifest.permission.BLUETOOTH_CONNECT;
+
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,18 +19,22 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.content.Context;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AlertDialog;
+
 import java.util.ArrayList;
+
 import android.view.View;
 import android.widget.Toast;
 
 import com.polarbear.dt20w.globaldata.MCUData;
 import com.polarbear.dt20w.parser.MCUFrameDecoder;
 
-public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBluetoothAction{
+public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBluetoothAction {
 
     // 蓝牙工具
     private BLESPPUtils mBLESPPUtils;
@@ -33,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
     // 输入的 ET
     private EditText mInputET;
     private DeviceDialogCtrl mDeviceDialogCtrl;
-    private static final String TAG = "MainActivity"; // 定义一个标签
 
     private MCUFrameDecoder mcuFrameDecoder;
 
@@ -44,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
         initPermissions();
 
         mcuFrameDecoder = new MCUFrameDecoder();
+
+        // 调用方法来设置按钮点击事件
+        setupButtonClickEvents();
 
         mBLESPPUtils = new BLESPPUtils(this, this);
         mBLESPPUtils.enableBluetooth();
@@ -56,20 +71,87 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
 
     }
 
+    private void setupButtonClickEvents() {
+
+        //Set
+        Button setSub = findViewById(R.id.setSub);
+        Button setAdd = findViewById(R.id.setAdd);
+        setSub.setOnClickListener(v -> {
+            Toast.makeText(MainActivity.this, "you click setSub", Toast.LENGTH_SHORT).show();
+        });
+        setAdd.setOnClickListener(v -> {
+            Toast.makeText(MainActivity.this, "you click setAdd", Toast.LENGTH_SHORT).show();
+        });
+
+        //Lim
+        Button limSub = findViewById(R.id.limSub);
+        Button limAdd = findViewById(R.id.limAdd);
+
+        //Vol
+        Button voltageRedSub = findViewById(R.id.voltageRedSub);
+        Button voltageRedAdd = findViewById(R.id.voltageRedAdd);
+        Button voltageGreenSub = findViewById(R.id.voltageGreenSub);
+        Button voltageGreenAdd = findViewById(R.id.voltageGreenAdd);
+        Button voltageBlueSub = findViewById(R.id.voltageBlueSub);
+        Button voltageBlueAdd = findViewById(R.id.voltageBlueAdd);
+
+
+        //Cur
+        Button curRedSub = findViewById(R.id.curRedSub);
+        Button curRedAdd = findViewById(R.id.curRedAdd);
+        Button curGreenSub = findViewById(R.id.curGreenSub);
+        Button curGreenAdd = findViewById(R.id.curGreenAdd);
+        Button curBlueSub = findViewById(R.id.curBlueSub);
+        Button curBlueAdd = findViewById(R.id.curBlueAdd);
+
+
+        //Offset
+        Button offsetRedSub = findViewById(R.id.offsetRedSub);
+        Button offsetRedAdd = findViewById(R.id.offsetRedAdd);
+        Button offsetGreenSub = findViewById(R.id.offsetGreenSub);
+        Button offsetGreenAdd = findViewById(R.id.offsetGreenAdd);
+        Button offsetBlueSub = findViewById(R.id.offsetBlueSub);
+        Button offsetBlueAdd = findViewById(R.id.offsetBlueAdd);
+
+
+        //TH
+        Button thRedSub = findViewById(R.id.thRedSub);
+        Button thRedAdd = findViewById(R.id.thRedAdd);
+        Button thGreenSub = findViewById(R.id.thGreenSub);
+        Button thGreenAdd = findViewById(R.id.thGreenAdd);
+        Button thBlueSub = findViewById(R.id.thBlueSub);
+        Button thBlueAdd = findViewById(R.id.thBlueAdd);
+
+
+
+        //LaserOn   save load setting
+        Button laserOn = findViewById(R.id.laserOn);
+        Button saveSetting = findViewById(R.id.saveSetting);
+        Button loadSetting = findViewById(R.id.loadSetting);
+
+
+    }
+
     private void initPermissions() {
         if (ContextCompat.checkSelfPermission(this, "android.permission-group.LOCATION") != 0) {
             ActivityCompat.requestPermissions(
                     this,
                     new String[]{
-                            "android.permission.ACCESS_FINE_LOCATION",
-                            "android.permission.ACCESS_COARSE_LOCATION",
-                            "android.permission.ACCESS_WIFI_STATE"},
+                            ACCESS_FINE_LOCATION,
+                            ACCESS_COARSE_LOCATION,
+                            ACCESS_WIFI_STATE,
+                            BLUETOOTH_CONNECT},
                     1
             );
         }
     }
+
     @Override
     public void onFoundDevice(BluetoothDevice device) {
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            initPermissions();
+            return;
+        }
         Log.d("BLE", "发现设备 " + device.getName() + device.getAddress());
         // 判断是不是重复的
         for (int i = 0; i < mDevicesList.size(); i++) {
@@ -78,15 +160,11 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
         // 添加，下次有就不显示了
         mDevicesList.add(device);
         // 添加条目到 UI 并设置点击事件
-        mDeviceDialogCtrl.addDevice(device, new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                BluetoothDevice clickDevice = (BluetoothDevice) v.getTag();
-                postShowToast("开始连接:" + clickDevice.getName());
-                mLogTv.setText(mLogTv.getText() + "\n" + "开始连接:" + clickDevice.getName());
-                mBLESPPUtils.connect(clickDevice);
-            }
+        mDeviceDialogCtrl.addDevice(device, v -> {
+            BluetoothDevice clickDevice = (BluetoothDevice) v.getTag();
+            postShowToast("开始连接:" + clickDevice.getName());
+            mLogTv.setText(mLogTv.getText() + "\n" + "开始连接:" + clickDevice.getName());
+            mBLESPPUtils.connect(clickDevice);
         });
     }
 
