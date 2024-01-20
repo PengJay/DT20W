@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
         // 调用方法来设置按钮点击事件
         setupButtonClickEvents();
 
-        mBLESPPUtils = new BLESPPUtils(this, this, this);
+        mBLESPPUtils = new BLESPPUtils(this, this);
         mBLESPPUtils.enableBluetooth();
         mBLESPPUtils.setStopString("01");
         if (!mBLESPPUtils.isBluetoothEnable()) mBLESPPUtils.enableBluetooth();
