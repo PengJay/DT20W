@@ -5,6 +5,8 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.ACCESS_WIFI_STATE;
 import static android.Manifest.permission.BLUETOOTH_CONNECT;
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.Log;
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
         // 调用方法来设置按钮点击事件
         setupButtonClickEvents();
 
-        mBLESPPUtils = new BLESPPUtils(this, this,this);
+        mBLESPPUtils = new BLESPPUtils(this, this, this);
         mBLESPPUtils.enableBluetooth();
         mBLESPPUtils.setStopString("01");
         if (!mBLESPPUtils.isBluetoothEnable()) mBLESPPUtils.enableBluetooth();
@@ -123,7 +125,6 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
         Button thBlueAdd = findViewById(R.id.thBlueAdd);
 
 
-
         //LaserOn   save load setting
         Button laserOn = findViewById(R.id.laserOn);
         Button saveSetting = findViewById(R.id.saveSetting);
@@ -133,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
     }
 
     private void initPermissions() {
+        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+
         if (ContextCompat.checkSelfPermission(this, "android.permission-group.LOCATION") != 0) {
             requestPermissions(new String[]{
                             ACCESS_FINE_LOCATION,
@@ -141,8 +144,16 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
                     },
                     1
             );
-
         }
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                requestPermissions(new String[]{BLUETOOTH_CONNECT}, 1
+                );
+            }
+            return;
+        }
+        startActivityForResult(enableBtIntent, 1);
+
     }
 
     @Override
@@ -359,5 +370,4 @@ public class MainActivity extends AppCompatActivity implements BLESPPUtils.OnBlu
     private interface DoSthAfterPost {
         void doIt();
     }
-
 }
